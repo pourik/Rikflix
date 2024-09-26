@@ -11,10 +11,10 @@ body {
     box-sizing: border-box;
 }
 
-.wrapper{
-    background-color: #141414;
+.wrapper {
     min-width: 1050px;
     min-height: 100%;
+    background-color: #141414;
 }
 
 .signInContainer {
@@ -48,10 +48,6 @@ body {
     margin: 10px 0;
     border: none;
     border-bottom: 1px solid #dedede;
-}
-
-input:focus{
-    outline: none;
 }
 
 .column form input[type="submit"] {
@@ -101,65 +97,70 @@ input:focus{
     text-align: center;
 }
 
-.previewVideo,
-.previewImage{
+.previewImage,
+.previewVideo {
     width: 100%;
 }
 
-.previewContainer{
+.previewContainer {
     position: relative;
     display: flex;
 }
 
-.small{
+.previewContainer.small {
     width: 230px;
-    height: 140px;
+    height: 129px;
+    margin-right: 4px;
     display: inline-flex;
-    margin: 0 5px 0 0;
 }
 
-.previewOverlay{
-    position: absolute;
+.previewContainer.small img {
     width: 100%;
     height: 100%;
-    background-color:rgba(0,0,0, 0.3);
+    object-fit: cover;
 }
 
-.previewOverlay .mainDetails{
+.previewOverlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    position: absolute;
+}
+
+.previewOverlay .mainDetails h3 {
+    color: #fff;
+    font-size: 40px;
+    margin: 15px 0;
+}
+
+.previewOverlay .mainDetails {
     position: relative;
-    top: 30%;
+    top: 35%;
     margin-left: 50px;
     display: flex;
     flex-direction: column;
 }
 
-.previewOverlay .mainDetails h3{
-    color: #fff; 
-    font-size: 40px;
-    margin: 15px 0;
-}
-
-.previewOverlay .mainDetails .buttons button{
-    background-color: rgba(51, 51, 51, 0.4);
-    color: #fff; 
+.mainDetails button {
+    background-color: rgba(51,51,51,0.4);
+    color: #fff;
     border: none;
     min-width: 150px;
-    padding: 0 40px;
+    padding: 0 38px;
     height: 50px;
     max-height: 50px;
     font-size: 18px;
     border-radius: 2px;
-    margin: 0 5px 15px 0;
+    margin-bottom: 15px;
+    margin-right: 5px;
     cursor: pointer;
 }
 
-.previewOverlay .mainDetails .buttons button i{
+button i {
     color: inherit;
 }
 
-.previewOverlay .mainDetails .buttons button:hover{
-    background-color: #efefee;
+.mainDetails button:hover {
+    background-color: #e6e6e6;
     color: #000;
 }
-
-
