@@ -1,50 +1,51 @@
-<?php 
-class CategoryContainers{
-    
+<?php
+class CategoryContainers {
+
     private $con, $username;
-    
-    public function __construct($con, $username){
+
+    public function __construct($con, $username) {
         $this->con = $con;
-        $this->$username = $username;
+        $this->username = $username;
     }
 
-    public function showAllCategories(){
+    public function showAllCategories() {
         $query = $this->con->prepare("SELECT * FROM categories");
         $query->execute();
 
         $html = "<div class='previewCategories'>";
-        while($row = $query->fetch(PDO::FETCH_ASSOC)){
+
+        while($row = $query->fetch(PDO::FETCH_ASSOC)) {
             $html .= $this->getCategoryHtml($row, null, true, true);
         }
-        return $html."</div>";
+
+        return $html . "</div>";
     }
 
-    public function getCategoryHtml($sqlData, $title, $tvShows, $movies){
+    private function getCategoryHtml($sqlData, $title, $tvShows, $movies) {
         $categoryId = $sqlData["id"];
         $title = $title == null ? $sqlData["name"] : $title;
-        
-        if($tvShows && $movies){
+
+        if($tvShows && $movies) {
             $entities = EntityProvider::getEntities($this->con, $categoryId, 30);
         }
-        elseif($tvShows){
-
+        else if($tvShows) {
+            // Get tv show entities
         }
-        else{
-
+        else {
+            // Get movie entities
         }
 
-        if(sizeof($entities) == 0){
+        if(sizeof($entities) == 0) {
             return;
         }
 
         $entitiesHtml = "";
         $previewProvider = new PreviewProvider($this->con, $this->username);
-        foreach($entities as $entity){
+        foreach($entities as $entity) {
             $entitiesHtml .= $previewProvider->createEntityPreviewSquare($entity);
         }
 
-
-        return $entitiesHtml."<br>";
+        return $entitiesHtml . "<br>";
     }
 
 }
