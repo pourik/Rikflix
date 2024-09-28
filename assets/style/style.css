@@ -234,7 +234,7 @@ button i {
     display: flex;
     flex-direction: column;
     width: 230px;
-    /* position: relative; */
+    position: relative;
 }
 
 .episodeContainer img {
@@ -255,8 +255,8 @@ button i {
     overflow-y: auto;
 }
 
-.previewCategories.noScroll .category .entities {
-    white-space: normal;
+.episodeContainer .videoInfo::-webkit-scrollbar{
+    display: none;
 }
 
 .watchContainer video {
