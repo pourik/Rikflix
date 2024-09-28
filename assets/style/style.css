@@ -197,6 +197,14 @@ button i {
     white-space: nowrap;
 }
 
+.videos::-webkit-scrollbar{
+    display: none;
+}
+
+.entities::-webkit-scrollbar{
+    display: none;
+}
+
 .previewCategories {
     padding: 0 50px;
 }
@@ -226,7 +234,7 @@ button i {
     display: flex;
     flex-direction: column;
     width: 230px;
-    position: relative;
+    /* position: relative; */
 }
 
 .episodeContainer img {
